@@ -54,19 +54,19 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
                     {% for post in object_list %}
-                    <div class="post-preview">
-                        <a href="{% url 'article-detail' post.pk %}">
-                            <h2 class="post-title">{{ post.title }}</h2>
-                            <h3 class="post-subtitle">{{ post.body }}</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">{{post.author.first_name}}&nbsp;{{post.author.last_name}}</a>
-                            on September 24, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
+                        <div class="post-preview">
+                            <a href="{% url 'article-detail' post.pk %}">
+                                <h2 class="post-title">{{ post.title }}</h2>
+                                <h3 class="post-subtitle">{{ post.body }}</h3>
+                            </a>
+                            <p class="post-meta">
+                                Posted by
+                                <a href="#!">{{post.author.first_name}}&nbsp;{{post.author.last_name}}</a>
+                                on September 24, 2021
+                            </p>
+                        </div>
+                        <!-- Divider-->
+                        <hr class="my-4" />
                     {% endfor %}
                    
                     <!-- Pager-->

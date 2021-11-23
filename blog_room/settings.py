@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-_sq+2k!z5nxtg99!58v3plla7unzwdf4&g@1nyj=edr8^*8((y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get("DEBUG",False))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['xclassblog.herokuapp.com']
 
 
 # Application definition

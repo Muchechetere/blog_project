@@ -45,7 +45,7 @@
                             <span class="subheading">By {{post.author.first_name}}&nbsp;{{post.author.last_name}}</span>
                             
                             <span class="meta">
-                                Posted on August 24, 2021 &nbsp;&nbsp;&nbsp; <a href="{% url 'update_post' post.pk %}">Edit</a>&nbsp;&nbsp; <a href="{% url 'delete_post' post.pk %}">Delete</a>
+                                Posted on {{post.post_date}}&nbsp;&nbsp;&nbsp; <a href="{% url 'update_post' post.pk %}">Edit</a>&nbsp;&nbsp; <a href="{% url 'delete_post' post.pk %}">Delete</a>
                             </span>
                         </div>
                     </div>

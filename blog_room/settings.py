@@ -28,7 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-_sq+2k!z5nxtg99!58v3plla7unzwdf4&g@1nyj=edr8^*8((y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get("DEBUG",False))
+DEBUG = True
+#DEBUG = bool(os.environ.get("DEBUG",False))
 
 ALLOWED_HOSTS = ['xclassblog.herokuapp.com']
 
@@ -43,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog_app',
+    'blog_members_app',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +137,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'

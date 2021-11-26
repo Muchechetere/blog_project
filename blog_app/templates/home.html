@@ -27,10 +27,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="home.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'home' %}">Home</a></li>
+                        {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'add_post' %}">Add Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'register' %}">Register</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'login' %}">Login</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'login' %}">About</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,12 +62,18 @@
                         <div class="post-preview">
                             <a href="{% url 'article-detail' post.pk %}">
                                 <h2 class="post-title">{{ post.title }}</h2>
-                                <h3 class="post-subtitle">{{ post.body }}</h3>
+                                <h3 class="post-subtitle">{{ post.body|slice:":20"| safe}}...</h3>
                             </a>
                             <p class="post-meta">
                                 Posted by
                                 <a href="#!">{{post.author.first_name}}&nbsp;{{post.author.last_name}}</a>
-                                on {{post.post_date}} &nbsp; <a href="{% url 'update_post' post.pk %}">Edit</a>&nbsp; <a href="{% url 'delete_post' post.pk %}">Delete</a>
+                                on {{post.post_date}} &nbsp;
+                                {% if user.is_authenticated %}
+                                    {% if user.id == post.author.id %}
+                                        <a href="{% url 'update_post' post.pk %}">Edit</a>&nbsp; 
+                                        <a href="{% url 'delete_post' post.pk %}">Delete</a>
+                                    {%endif%}
+                                {%endif%}
                             </p>
                         </div>
                         <!-- Divider-->
@@ -101,6 +112,22 @@
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#!">
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fas fa-circle fa-stack-2x"></i>
+                                        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
                                     </span>
                                 </a>
                             </li>

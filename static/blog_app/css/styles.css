@@ -999,6 +999,7 @@ progress {
     margin-left: 0;
   }
 
+
   .offset-sm-1 {
     margin-left: 8.33333333%;
   }
@@ -10613,7 +10614,15 @@ textarea.form-control-lg {
     margin-top: 0.5rem !important;
     margin-bottom: 0.5rem !important;
   }
+  .lnk {
+      color: rgb(104, 145, 162);
+  }
 
+  .lnk:hover,
+  .lnk:active,
+  .lnk:focus{
+      color: rgb(12, 97, 33);
+  }
   .my-xxl-3 {
     margin-top: 1rem !important;
     margin-bottom: 1rem !important;

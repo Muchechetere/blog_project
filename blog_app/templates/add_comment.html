@@ -15,7 +15,6 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'blog_app/css/styles.css' %}" rel="stylesheet" />
-        <link href="{% static 'blog_app/css/styles2.css' %}" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -41,37 +40,34 @@
                 </div>
             </div>
         </nav>
-          <header class="masthead" style="background-image: url('{% static "blog_app/assets/img/ice-mountains.jpg" %}')">
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{% static "blog_app/assets/img/ice-mountains.jpg" %}')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Registration</h1>
-                            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                            <h1>Add Blog Comment</h1>
+                            <span class="subheading">Give us your opinion on the post</span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-    <div class="container">
-        <div class="card card-container">
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-            <p id="profile-name" class="profile-name-card">Registration Information</p>
-            <form class="form-signin" method ="POST">
-                {% csrf_token %}
-                <span id="reauth-username" class="reauth-username"></span>
-                <input type="username" id="inputUsername" class="form-control" name="username" placeholder="Enter Username" required autofocus><br/>
-                <input type="email" id="inputUsername" class="form-control" name="email" placeholder="Enter Email Address" required ><br/>
-                <input type="first_name" id="inputUsername" class="form-control" name="first_name" placeholder="First Name" required ><br/>
-                <input type="last_name" id="inputUsername" class="form-control" name="last_name" placeholder="Last Name" required><br/>
-                 <input type="password1" id="inputPassword" class="form-control" name="password1" placeholder="Enter Password" required><br/>
-                <input type="password2" id="inputPassword" class="form-control" name="password2" placeholder="Password Confirmation" required><br/>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Register</button>
-            </form><!-- /form -->
-        </div><!-- /card-container -->
-    </div><!-- /container -->
-    <!--footer-->
-    <footer class="border-top">
+        <!-- Main Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <form method ="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="d-flex justify-content-end mb-4" style="border:none;padding:0;background:none;"><a class="btn btn-primary text-uppercase">Comment</a></button>
+                </div>
+            </div>
+        </div>
+    </article>
+        <!-- Footer-->
+<footer class="border-top">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">

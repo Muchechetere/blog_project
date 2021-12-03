@@ -54,17 +54,19 @@
             </div>
         </header>
         <!-- Main Content-->
-         <div class="container px-4 px-lg-5">
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7 form-control"> 
+                <div class="col-md-10 col-lg-8 col-xl-7">
                     <form method ="POST">
                         {% csrf_token %}
                         {{ form.media }}
                         {{ form.as_p }}
-                        <button class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase">Post</a></button>
+                        <button class="d-flex justify-content-end mb-4" style="border:none;padding:0;background:none;"><a class="btn btn-primary text-uppercase">Post</a></button>
                 </div>
             </div>
         </div>
+    </article>
         <!-- Footer-->
 <footer class="border-top">
             <div class="container px-4 px-lg-5">

@@ -40,34 +40,56 @@
                 </div>
             </div>
         </nav>
-        <!-- Page Header-->
-        <header class="masthead" style="background-image: url('{% static "blog_app/assets/img/ice-mountains.jpg" %}')">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                            <h1>Create Blog Post</h1>
-                            <span class="subheading">Let's create an article</span>
+        {% if user.is_authenticated %}    
+            <!-- Page Header-->
+            <header class="masthead" style="background-image: url('{% static "blog_app/assets/img/ice-mountains.jpg" %}')">
+                <div class="container position-relative px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <div class="site-heading">
+                                <h1>Create Blog Post</h1>
+                                <span class="subheading">Let's create an article</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
-        <!-- Main Content-->
-    <article class="mb-4">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <form method ="POST">
-                        {% csrf_token %}
-                        {{ form.media }}
-                        {{ form.as_p }}
-                        <button class="d-flex justify-content-end mb-4" style="border:none;padding:0;background:none;"><a class="btn btn-primary text-uppercase">Post</a></button>
+            </header>
+            <!-- Main Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <form method ="POST">
+                            {% csrf_token %}
+                            {{ form.media }}
+                            {{ form.as_p }}
+                            <button class="d-flex justify-content-end mb-4" style="border:none;padding:0;background:none;"><a class="btn btn-primary text-uppercase">Post</a></button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </article>
-        <!-- Footer-->
+        </article>
+        {%else%}
+            <header class="masthead" style="background-image: url('{% static "blog_app/assets/img/ice-mountains.jpg" %}')">
+                <div class="container position-relative px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-md-10 col-lg-8 col-xl-7">
+                            <div class="site-heading">
+                                <h1>Access Denied</h1>
+                                <span class="subheading">Oops,seems like you're not authorised to access this page </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Main Content-->
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7 form-control"> 
+                    </div>
+                </div>
+            </div>
+        {%endif%}
+            <!-- Footer-->
 <footer class="border-top">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">

@@ -86,7 +86,9 @@
                                         <p class="text-right text-muted"><small>{{ comment.date_added }}</small></p><hr/><br/>
                             {% endfor %}
                         {% endif %}
-                        Have an opinion or suggestion? <a href = "{%url 'add_comment' post.pk %}">Leave a Comment</a>
+                        {%if post.comments.all%}
+                         Have an opinion or suggestion? <a href = "{%url 'add_comment' post.pk %}">Leave a Comment</a>
+                         {%endif%}
                     </div>
                 </div>
             </div>
